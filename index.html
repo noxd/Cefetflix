@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	</style>
+	<meta charset="utf-8" />
+	<title>Cefetflix</title>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/filmes.js"></script>
+	<script>
+
+	$(function(){
+		$.each(filmes, function(indice, filmes){
+			var $ul = $("<ul />");
+
+			$.each(filmes.generos, function(i, obj){
+				$ul.append($("<li />").text(obj));
+			})
+
+			$(".catalogo")
+				.append($("<div />")
+				.addClass("filme")
+				.append($("<h2 />").text(filmes.titulo)
+				)
+				.append($("<img />")
+					.attr("src", filmes.figura)
+				)
+				.append($("<p />").text(filmes.resumo)
+				)
+				.append($("<div />")
+					.addClass("filme-generos")
+					.append($("<h2 />")
+						.text("Gêneros")
+					)
+					.append($ul)
+					)
+				)
+		})
+
+
+
+
+	});
+
+
+	</script>
+</head>
+<body>
+	<div>
+		<h1>Cefetflix</h1>
+	</div>
+	<div class="catalogo"></div>
+</body>
+</html>
