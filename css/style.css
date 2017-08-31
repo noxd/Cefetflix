@@ -1,0 +1,121 @@
+*{
+	font-family: 'Raleway', sans-serif;
+
+}
+.catalogo .filme figure .div-figura .titulo-figura{
+	width: 415px;
+}
+
+.filme{
+	width: 500px;
+	height: 600px;
+	float: left;
+	margin-left: 100px;
+}
+
+p{
+	text-align: justify;
+	width: 415px;
+	margin-left: 40px;
+}
+
+.catalogo{
+	margin-top: 70px;
+	width: 100%
+}
+
+figure .div-figura{
+	position: relative;
+	width: 415px;
+	display: inline-block;
+}
+
+
+figure .div-figura .legenda{
+	position: absolute;
+	bottom: 5px;
+	text-align: center;
+	width: 100%;
+	background-color: black;
+	color: white;
+	padding: 10px 0px 10px 0px;
+	font-size: 20px;
+	opacity: 0.5;
+ }
+
+ figure .div-figura .legenda:hover{
+	position: absolute;
+	bottom: 5px;
+	text-align: center;
+	width: 100%;
+	background-color: black;
+	color: white;
+	padding: 15px 0px 15px 0px;
+	font-size: 22px;
+	opacity: 1.0;
+	transition-duration: 0.5s;
+ }
+
+ ul, ol{
+ 	list-style: none;
+ 	display: inline;
+ 	margin-left: 320px; 
+ }
+ 
+ li{
+ 	 padding-top: 5px;
+ }
+
+ .filme-generos, .filme-elenco{
+ 	width: 250px;
+ 	margin-left: 50px;
+ 	margin-top: 0px;
+ 	margin-bottom: 0px;
+ }
+
+.genero-elenco{
+	display: inline-flex;
+	margin: 0 auto;
+}
+
+.classificacao-indicativa{
+	clear: both;
+	width: 40px;
+	position: absolute;
+	top: 3px;
+	right: 3px;
+}
+
+.cabecalho p{
+	width: 100%;
+	color: #e50914;
+	padding: 10px;
+	margin: 0px;
+	text-align: center;
+	font-size: 2em;
+}
+
+.cabecalho{
+	background-color: black;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 999;
+	opacity: 0.8;
+}
+
+.cabecalho:hover{
+	background-color: black;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 999;
+	opacity: 1;
+	transition-duration: 0.7s;
+}
+
+button{
+	margin: 0auto;
+}

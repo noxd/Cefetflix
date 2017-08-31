@@ -1,53 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style type="text/css">
-	</style>
+
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<meta charset="utf-8" />
 	<title>Cefetflix</title>
 	<script src="./js/jquery.min.js"></script>
 	<script src="./js/filmes.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<script>
 
 	$(function(){
 		$.each(filmes, function(indice, filmes){
+
+			if (filmes.classificacao==18) {
+				$url = "https://vignette3.wikia.nocookie.net/simsfanon/images/1/17/Classifica%C3%A7%C3%A3o_18_anos.png/revision/latest?cb=20150614043653&path-prefix=pt-br";
+			}else if (filmes.classificacao==16) {
+				$url = "https://blogjatefalei.files.wordpress.com/2014/09/classificacao_16anos.png";
+			}else if (filmes.classificacao==0) {
+				$url = "https://vignette4.wikia.nocookie.net/simsfanon/images/d/d0/Classifica%C3%A7%C3%A3o_Livre.png/revision/latest?cb=20130906042945&path-prefix=pt-br";
+			}else if (filmes.classificacao==12) {
+				$url = "https://blogjatefalei.files.wordpress.com/2014/09/classificacao_12anos.png";
+			}else if (filmes.classificacao==14) {
+				$url = "https://vignette2.wikia.nocookie.net/simsfanon/images/9/9b/Classifica%C3%A7%C3%A3o_14_anos.png/revision/latest?cb=20130906044256&path-prefix=pt-br";
+			}else if (filmes.classificacao==10) {
+				$url = "https://vignette2.wikia.nocookie.net/simsfanon/images/4/47/Classifica%C3%A7%C3%A3o_10_anos.png/revision/latest?cb=20130906041926&path-prefix=pt-br";
+			}
+
+			var $descricao = filmes.opinioes.descricao;
+
 			var $ul = $("<ul />");
+			var $ol = $("<ol />");
 
 			$.each(filmes.generos, function(i, obj){
-				$ul.append($("<li />").text(obj));
+				$ul.append($("<li />").text(obj)).addClass("titulo-genero");
+			})
+
+
+			$.each(filmes.elenco, function(i, obj){
+				$ol.append($("<li />").text(obj)).addClass("titulo-elenco");
 			})
 
 			$(".catalogo")
 				.append($("<div />")
 				.addClass("filme")
-				.append($("<h2 />").text(filmes.titulo)
+
+				.append($("<figure />")
+
+					.append($("<div />")
+						.addClass("div-figura")
+
+						.append($("<img />")
+							.attr("src", filmes.figura)
+							.addClass("titulo-figura")
+						)
+
+						.append($("<img />").attr("src", $url).addClass("classificacao-indicativa")
+						)
+						
+						.append($("<div />").addClass("legenda")
+							.append($("<figcaption />").text(filmes.titulo)
+							)
+						)
+				)//figure
 				)
-				.append($("<img />")
-					.attr("src", filmes.figura)
-				)
+
+				
 				.append($("<p />").text(filmes.resumo)
 				)
-				.append($("<div />")
-					.addClass("filme-generos")
-					.append($("<h2 />")
-						.text("Gêneros")
+				.append($("<div />").addClass("genero-elenco")
+					.append($("<div />")
+						.addClass("filme-generos")
+						.append($("<h2 />")
+							.text("Gêneros")
+						)
+						.append($ul)
 					)
-					.append($ul)
+
+					.append($("<div />")
+						.addClass("filme-elenco")
+						.append($("<h2 />")
+							.text("Elenco")
+						)
+						.append($ol)
 					)
 				)
+
+				.append($("<p />").text($descricao)
+					)
+		)// filme
 		})
-
-
-
-
 	});
 
 
 	</script>
 </head>
 <body>
-	<div>
-		<h1>Cefetflix</h1>
+	<div class="cabecalho">
+		<p>Cefetflix</p>
 	</div>
 	<div class="catalogo"></div>
 </body>
